@@ -1,0 +1,19 @@
+As classes precisam estar dentro de um pacote 
+@ = annotations  - função do java
+
+O que é tomcat?
+o que é Rest?
+
+A controller é responsável por receber as requisições do usuário e encaminhá-las para as demais camadas da aplicação.
+"@RestController" é utilizado para construir uma API. = cria uma rota
+"@Controller" permite retornar páginas
+
+Lombok, uma biblioteca do Java que nos permite otimizar a criação de getters, setters e outros métodos, como construtores e toString
+@Data = getters e setters
+@Setters ou @Getters
+
+getters são usados para buscar informações dos atributos
+setters são usados para atualizar ou inserir valores nos atributos
+
+
+Interface = modelo de definição -> não é implementado. representa os metodos 
