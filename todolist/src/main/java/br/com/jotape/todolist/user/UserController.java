@@ -13,23 +13,22 @@ import at.favre.lib.crypto.bcrypt.BCrypt;
 @RestController
 @RequestMapping("/Users")
 public class UserController {
-     
-     @Autowired // o spring gerencia 
-     private IUserRepository userRepository;  // chamando a interface extendida
+
+     @Autowired
+     private IUserRepository userRepository;
 
      @PostMapping("/")
      public ResponseEntity create(@RequestBody UserModel userModel) {
-          //System.out.println(userModel.getUsername()); //userModel é uma nova Classe
           var user = this.userRepository.findByUsername(userModel.getUsername());
-         
-          if(user != null) {               
+
+          if (user != null) {
                return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Usuário já existe");
           }
-                    
+
           var passwordHashred = BCrypt.withDefaults().hashToString(12, userModel.getPassword().toCharArray());
           userModel.setPassword(passwordHashred);
-          
-          var userCreated = this.userRepository.save(userModel);          
+
+          var userCreated = this.userRepository.save(userModel);
           return ResponseEntity.status(HttpStatus.CREATED).body(userCreated);
      }
 }

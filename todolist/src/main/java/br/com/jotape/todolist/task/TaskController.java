@@ -25,12 +25,12 @@ public class TaskController {
      private ITaskRepository taskRepository;
 
      /*
-      * RestController - http - uma rota -> patch
+      * RestController - http - rota -> patch
       * Get - Buscar um informação
-      * Post - adicionar um dado
-      * Put - alterar dados / nome,senha
-      * Delete-
-      * Patch - altera somente um parte do dado / nome
+      * Post - Adicionar um dado
+      * Put - alterar um dado dado
+      * Delete - Apaga
+      * Patch - altera somente um parte do dado 
       */
 
      @PostMapping("/")

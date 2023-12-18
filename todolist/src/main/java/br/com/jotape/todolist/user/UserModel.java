@@ -14,19 +14,17 @@ import lombok.Data;
 
 @Data
 
-@Entity(name ="tb_users") //Entity = tabela
+@Entity(name ="tb_users") 
 public class UserModel {    
 
     @Id
     @GeneratedValue(generator = "UUID")
     private UUID id;
 
-    @Column(unique = true)  // coluna com uma constraint de atributo único
+    @Column(unique = true)  
     private String username;
     private String name;
-    
-    //@Getter
-    //@Setter para apenas uma atributo
+      
     private String password;   
 
     @CreationTimestamp

@@ -18,18 +18,18 @@ public class FilterTaskAuth extends OncePerRequestFilter {
      @Autowired
      private IUserRepository userRepository;
 
-     @Override /* faz o programa passar por está validação */
+     @Override // Faz o programa passar por está validação
      protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)
                throws ServletException, IOException {
 
           var servletPath = request.getServletPath();
 
           if (servletPath.startsWith("/tasks/")) {
-               // pega a autenticação (usuario e senha)
+               // Pega a autenticação (usuario e senha)
                var authorization = request.getHeader("Authorization");
                var authEncoded = authorization.substring("Basic".length()).trim();
                byte[] authDecode = Base64.getDecoder().decode(authEncoded);
-               
+
                var authString = new String(authDecode);
                String[] credentials = authString.split(":");
                String username = credentials[0];
@@ -48,7 +48,7 @@ public class FilterTaskAuth extends OncePerRequestFilter {
                     }
                }
           } else {
-                filterChain.doFilter(request, response);
+               filterChain.doFilter(request, response);
           }
      }
 }

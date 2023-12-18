@@ -8,8 +8,7 @@ import org.springframework.beans.BeanWrapper;
 import org.springframework.beans.BeanWrapperImpl;
 
 public class Utils {
-
-     // static não precisa instânicar
+         
      public static void copyNonNullProperties(Object source, Object target) {
           BeanUtils.copyProperties(source, target, getNullPropertyNames(source));
      }
